@@ -13,4 +13,13 @@ public class Controller {
         return "hey";
     }
 
+    @GetMapping()
+    public String seyGood() {
+        return "good";
+    }
+
+    @GetMapping()
+    public String seybood() {
+        return "bood";
+    }
 }
