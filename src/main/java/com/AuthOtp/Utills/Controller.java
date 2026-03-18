@@ -13,4 +13,9 @@ public class Controller {
         return "hey";
     }
 
+    @GetMapping()
+    public String seyBye() {
+        return "bye";
+    }
+
 }
