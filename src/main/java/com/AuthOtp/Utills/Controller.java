@@ -14,8 +14,8 @@ public class Controller {
     }
 
     @GetMapping()
-    public String seyGood() {
-        return "good";
+    public String seyBye() {
+        return "bye";
     }
 
 }
