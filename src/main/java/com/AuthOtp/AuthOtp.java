@@ -8,9 +8,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class AuthOtp extends SpringBootServletInitializer {
 
-//this is my project
-
-
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 
