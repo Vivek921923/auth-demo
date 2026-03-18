@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eKYC</title>
+    <link rel="stylesheet" href="css/styleaotp.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>eKYC</h1>
+      <p id="message" class="message"></p>
+      <div class="form-group">
+        <label for="aadhar">Aadhar Number</label>
+        <input
+          type="text"
+          id="aadhar"
+          placeholder="XXXX XXXX XXXX"
+          maxlength="14"
+          oninput="formatAadhar(event); validateInput();"
+        />
+      </div>
+      <button id="sendBtn" class="send-btn" onclick="sendOtp()" disabled>
+        Send OTP
+      </button>
+      <div class="form-group">
+        <label for="otp">Enter OTP</label>
+        <input
+          type="text"
+          id="otp"
+          placeholder="Enter OTP"
+          maxlength="6"
+          oninput="validateInput();"
+        />
+      </div>
+      <button id="submitBtn" class="submit-btn" onclick="submitForm()" disabled>
+        Submit
+      </button>
+      <p id="loading" class="loading">Processing...</p>
+      <p id="ekycStatusMessage" class="message" style="display: none"></p>
+      <p id="ekycStatusErr" class="message" style="display: none"></p>
+    </div>
+
+    <div
+      class="info-box"
+      style="
+        text-align: center;
+        color: #555;
+        font-size: 20px;
+        margin-bottom: 15px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #e8f5e9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+        animation: slideIn 0.8s ease;
+      "
+    >
+      <h3>eKyc Information</h3>
+      <div
+        class="info-container"
+        style="display: flex; align-items: center; gap: 50px"
+      >
+        <div
+          class="image-container"
+          style="
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+          "
+        >
+          <img id="phtImage" src="" />
+        </div>
+        <div
+          class="details-container"
+          style="flex-grow: 1; text-align: left; font-size: 14px; color: #333"
+        >
+          <div id="poiDetails" class="poi-details"></div>
+          <div
+            class="divider"
+            style="
+              width: 100%;
+              height: 1px;
+              background-color: black;
+              margin: 5px 0;
+            "
+          ></div>
+          <div id="poaDetails" class="poa-details"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- eKYC Request Below Response -->
+    <div id="requestBox" class="request-box">
+      <h3>eKYC Request</h3>
+      <p id="requestMessage"></p>
+    </div>
+
+    <!-- eKYC Response Below Image -->
+    <div id="responseBox" class="response-box">
+      <h3>eKYC Response</h3>
+      <p id="responseMessage"></p>
+
+      <script src="js/scriptaotp.js"></script>
+    </div>
+  </body>
+</html>
