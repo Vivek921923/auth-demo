@@ -12,10 +12,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: "temurin"
-          java-version: "17"
+          java-version: "21"
 
-      - name: Give permission
-        run: chmod +x mvnw
-
-      - name: Build
-        run: ./mvnw clean install
+      - run: chmod +x mvnw
+      - run: ./mvnw clean install
