@@ -1,11 +1,14 @@
-# Base image
+# Build stage
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Run stage
 FROM eclipse-temurin:21-jdk-jammy
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 
-# Copy jar file
-COPY target/*.jar app.jar
-
-# Expose port
 EXPOSE 8080
 
-# Run application
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
